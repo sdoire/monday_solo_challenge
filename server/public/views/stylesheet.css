@@ -1,0 +1,14 @@
+#numTeams {
+    display: inline-block;
+}
+#btn-random {
+    display: block;
+}
+.active {
+background-color: blue;
+}
+.group {
+    display: inline-block;
+    margin-right: 20px;
+    vertical-align: top;
+}
