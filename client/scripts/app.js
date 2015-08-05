@@ -11,6 +11,11 @@ $(document).ready(function (){
             });
         }
     });
+    /**
+     * returns a randomly shuffled array
+     * @param array
+     * @returns {*}
+     */
     function shuffle(array) {
         var currentIndex = array.length, temporaryValue, randomIndex ;
 
@@ -29,11 +34,21 @@ $(document).ready(function (){
 
         return array;
     }
+
+    /**
+     * Adds correct number of groups to DOM
+     * @param num
+     */
     function addGroup(num){
         for (var i = 1; i <= num; i++) {
             $('body').children().last().append("<div class='group' data-index="+i+ ">" + "<h1>" + "Group: " + i + "</h1>" + "</div>");
         }
     }
+
+    /**
+     * Assigns people to groups
+     * @param num
+     */
     function assignTeam(num){
         teamNum=1;
 
@@ -41,7 +56,6 @@ $(document).ready(function (){
             if (teamNum > num){
                 teamNum = 1;
             }
-            //teams fade in, but not individual people
             $('[data-index="'+teamNum+'"]').append("<p>" + people[i] + "</p>");
             $('[data-index="'+teamNum+'"]').children().last().hide().delay(300*i).fadeIn();
             teamNum++;
@@ -49,6 +63,9 @@ $(document).ready(function (){
 
     }
 
+    /**
+     * removes active class from all buttons
+     */
     function clearClass(){
         $('.1').removeClass('active');
         $('.2').removeClass('active');
@@ -64,7 +81,6 @@ $(document).ready(function (){
 
     $('body').on('click', '#numTeams', function(){
         clearClass();
-        $('#numTeams').removeClass('active');
         num = $(this).text();
         $(this).addClass('active');
         return num;
